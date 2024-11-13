@@ -1,5 +1,5 @@
 from access_token import get_access_token
-from ocr import ocr_image
+from ocr import ocr_image,get_language_type,LANGUAGES
 from file_selector import select_image_files
 from image_process import add_text_to_image
 import os
@@ -18,10 +18,13 @@ def main():
         print("无法获取Access Token。")
         return
     
+    # 选择源语言类型
+    selected_lang = get_language_type()
+
     # 批量处理每个图片文件
     for image_path in image_paths:
         """处理 OCR 请求"""
-        result = ocr_image(image_path, access_token)
+        result = ocr_image(image_path, selected_lang, access_token)
         if not result or "words_result" not in result:
             print(f"无法识别图片 {image_path}")
             return
