@@ -16,5 +16,5 @@ def get_access_token():
         access_token = response.json().get('access_token')
         return access_token
     else:
-        print("获取 Access Token 失败！")
+        print("获取 Access Token 失败。")
         return None

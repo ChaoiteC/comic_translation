@@ -1,12 +1,12 @@
 import tkinter as tk
 from tkinter import filedialog
 
-# 通过Windows选择图片
-def select_image_file():
+def select_image_files():
+    """选择多个图片文件"""
     root = tk.Tk()
     root.withdraw()  # 不显示主窗口
-    file_path = filedialog.askopenfilename(
+    file_paths = filedialog.askopenfilenames(
         title="选择图片文件",
         filetypes=(("Image files", "*.jpg;*.jpeg;*.png;*.bmp"), ("All files", "*.*"))
     )
-    return file_path
+    return file_paths
