@@ -25,3 +25,8 @@ BAIDU_API_KEY=[你的API Key]
 BAIDU_SECRET_KEY=[你的Secret Key]
 ```
 
+程序效果如下：
+
+![前](https://raw.githubusercontent.com/ChaoiteC/comic_translation/refs/heads/main/test1.jpg)
+
+![后](https://raw.githubusercontent.com/ChaoiteC/comic_translation/refs/heads/main/test1_with_text.jpg)
