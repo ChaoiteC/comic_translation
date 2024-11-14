@@ -46,7 +46,6 @@ def is_valid_image(file_path):
     # 如果图片符合所有要求，返回 True
     return True
 
-
 def select_files():
     """
     拉起系统文件选择窗口，返回符合条件的图片文件路径列表。
@@ -84,7 +83,6 @@ def select_files():
         return []
 
     return valid_files
-
 
 # 调用函数并输出符合条件的文件路径
 if __name__ == "__main__":

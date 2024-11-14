@@ -6,7 +6,7 @@ import json
 import os
 from hashlib import md5
 
-def baidufanyi_ocr_translate(image_path, from_lang='zh', to_lang='en', appid=None, appkey=None):
+def baidufanyi_ocr_translate(image_path, from_lang='zh', to_lang='en', appid=None, appkey=None, paste='1'):
     """
     使用百度翻译API对给定的图片进行OCR翻译，并返回翻译结果。
     
@@ -14,6 +14,7 @@ def baidufanyi_ocr_translate(image_path, from_lang='zh', to_lang='en', appid=Non
     - image_path: 图片文件的路径
     - from_lang: 原语言，默认为简体中文（'zh'）
     - to_lang: 目标语言，默认为英语（'en'）
+    - paste: 图片贴合
 
     返回:
     - JSON格式的翻译结果
@@ -34,13 +35,15 @@ def baidufanyi_ocr_translate(image_path, from_lang='zh', to_lang='en', appid=Non
     
     # 构造请求参数
     payload = {
-        'from': from_lang,  # 来源语言
-        'to': to_lang,      # 目标语言
+        'from': from_lang,   # 来源语言
+        'to': to_lang,       # 目标语言
         'appid': app_id,     # 应用ID
         'salt': salt,        # 随机盐值
         'sign': sign,        # 签名
         'cuid': 'APICUID',
-        'mac': 'mac'
+        'mac': 'mac',
+        'version': 3,
+        'paste': paste,      # 图像贴合
     }
     
     # 读取图片文件并构建文件字典
@@ -68,7 +71,6 @@ def get_md5(string, encoding='utf-8'):
     - MD5的十六进制字符串
     """
     return md5(string.encode(encoding)).hexdigest()
-
 
 def get_file_md5(file_name):
     """
