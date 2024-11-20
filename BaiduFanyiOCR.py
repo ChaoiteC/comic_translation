@@ -26,7 +26,7 @@ def baidufanyi_ocr_translate(image_path, from_lang='zh', to_lang='en', appid=Non
     url = endpoint + path
 
     # 从config.ini获取 id 与 key
-    check_and_update_config('config.ini', appid, appkey)
+    check_config('config.ini', appid, appkey)
     app_id, app_key = load_config('config.ini')
     
     # 生成盐值salt和签名sign
@@ -57,7 +57,6 @@ def baidufanyi_ocr_translate(image_path, from_lang='zh', to_lang='en', appid=Non
     
     # 返回翻译结果
     return result
-
 
 def get_md5(string, encoding='utf-8'):
     """
@@ -105,7 +104,7 @@ def load_config(config_path='config.ini'):
 
     return app_id, app_key
 
-def check_and_update_config(config_path='config.ini', appid=None, appkey=None):
+def check_config(config_path='config.ini', appid=None, appkey=None):
     """
     检查config.ini文件是否存在，且包含[baidufanyi_ocr_api]的app_id和app_key。
     如果appid或appkey为空，要求用户输入并保存。
@@ -163,7 +162,6 @@ def check_and_update_config(config_path='config.ini', appid=None, appkey=None):
 
     return {'appid': appid_config, 'appkey': appkey_config}
 
-# 示例：如何调用ocr_translate函数
 if __name__ == "__main__":
     image_path = r'C:\Users\Karub\Desktop\Comic_Trans\test1.jpg'  # 这里填写你要翻译的图片路径
     

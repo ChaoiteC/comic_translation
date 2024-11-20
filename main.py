@@ -1,6 +1,5 @@
-from access_token import get_access_token
-from ocr import ocr_image,get_language_type
-from baidufanyi_ocr import baidufanyi_ocr_translate
+from BaiduAiOCR import baidu_ai_ocr,get_language_type
+from BaiduFanyiOCR import baidufanyi_ocr_translate
 from file_selector import select_files
 from image_process import save_base64_image
 import os
@@ -42,7 +41,7 @@ def comic_trans():
             name, ext = os.path.splitext(file_name)  # 分离文件名和扩展名
             
             # 为新的文件指定新的扩展名（这里可以选择保存为png或者其他格式）
-            new_file_name = name + "_translated.png"  # 假设保存为.png格式
+            new_file_name = name + "_translated" + ext
 
             # 将新文件保存到当前工作目录或指定路径
             output_file = os.path.join(os.path.dirname(image_path), new_file_name)  # 保持在原始路径下保存
